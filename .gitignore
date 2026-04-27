@@ -1,0 +1,18 @@
+# general
+data/
+local/
+logs/
+.env
+*.log
+
+# packages
+__pycache__/
+*.egg-info/
+*.pytest_cache/
+
+# environments
+envs/
+.venv
+
+# workspace settings
+.vscode
