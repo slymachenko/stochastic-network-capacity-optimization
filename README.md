@@ -62,3 +62,65 @@ A few requirements (constraints) must be sattisfied
     $$y_1 \geq  x_2- u_2,$$
     $$y_2 \geq  x_3 - u_3,$$
     $$y_3 \geq  x_4 - u_4,$$
+
+## Compact LP Formulation
+
+Let the decision vector be $a \in \mathcal A$, where $\mathcal A$ is the set of feasible actions defined by the lower and upper bounds on the capacities. The deterministic design optimization problem can be written compactly as a linear program:
+
+$$
+\begin{align*}
+\min_{a\in \mathcal{A}} \quad & c^T a
+\\ \text{s.t.} \quad & A_{in}a \leq b_{in}(u) \end{align*}
+$$
+
+where:
+
+- $c^\top=\begin{bmatrix}C_x \\ C_y\end{bmatrix}^\top$ is the vector of unit investment costs,
+- $A_{in}$ is the inequality constraint matrix,
+- $b_{in}(u)$ is the right-hand-side vector
+
+---
+
+More explicitly
+
+$$
+-A_{in} a=
+\begin{bmatrix}
+1 & 1 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 1 & 1 \\
+1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 & 1 & 0 \\
+0 & 0 & 1 & 0 & 0 & 1 \\
+-1 & 0 & 0 & 1 & 0 & 0 \\
+0 & -1 & 0 & 0 & 1 & 0 \\
+0 & 0 & -1 & 0 & 0 & 1
+\end{bmatrix} \begin{bmatrix}
+x_2 \\ x_3 \\ x_4 \\ y_1 \\ y_2 \\ y_3
+\end{bmatrix}
+\quad \geq
+-b_{in}(u) =
+\begin{bmatrix}
+u_1+u_2+u_3+u_4 \\
+u_1 \\
+u_2 \\
+u_3 \\
+u_4 \\
+-u_2 \\
+-u_3 \\
+-u_4
+\end{bmatrix}.$$
+
+$b_{in}(u)$ depends on the demand vector $u$ and can be obtained from the vector $u$ as follows $Bu$. That is, matrix multiplication with a matrix of coefficients.
+
+$$ B=
+\begin{bmatrix}
+1 & 1 & 1 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}
+$$
