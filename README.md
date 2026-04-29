@@ -27,13 +27,7 @@ The network has 4 nodes, $i=1,2,3,4$. These are components:
 ### Variables and Objective Function
 
 Let the decision variables be defined as:
-$$
-a=\begin{bmatrix}x\\y\end{bmatrix}
-=
-\begin{bmatrix}
-x_2 & x_3 & x_4 & y_1 & y_2 & y_3
-\end{bmatrix}^\top,
-$$
+$$a=\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix} x_2 & x_3 & x_4 &  y_1 & y_2 & y_3 \end{bmatrix}^\top$$
 
 The objective is to find the optimal $a$ such that the total investment cost is minimized. The total cost is a linear function as follows::
 
