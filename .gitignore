@@ -16,3 +16,6 @@ envs/
 
 # workspace settings
 .vscode
+
+# notebooks figs
+assets/figs/output

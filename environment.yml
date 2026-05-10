@@ -1,0 +1,9 @@
+name: sncp
+channels:
+  - conda-forge
+dependencies:
+  - pandas
+  - numpy
+  - matplotlib
+  - ipykernel
+  - scipy
