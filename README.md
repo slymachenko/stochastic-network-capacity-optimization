@@ -2,6 +2,42 @@
 
 This project models a low-voltage distribution network optimization problem from the perspective of a Distribution System Operator (DSO). The goal is to design a cost-effective, safe, and robust grid expansion plan that connects residential demand points while accounting for the inherent uncertainty of distributed energy resources (DERs) like rooftop solar and micro-wind turbines.
 
+## Setup
+
+> [!NOTE]
+> You must have [Git](https://git-scm.com/downloads) and [Conda](https://www.anaconda.com/download/success) installed on your system
+
+1. Clone the repository:
+
+    `git clone https://github.com/slymachenko/stochastic-network-capacity-optimization.git`
+
+2. Navigate to the project directory.
+3. Move input data to `data/input/` directory
+4. Set environment variables in `.env` file (see `example.env`)
+5. Create conda environment:
+
+    ```bash
+    conda env create -f environment.yml
+    conda activate snco
+    ```
+
+6. From the project root install project package:
+
+   ```bash
+   pip install -e common
+   ```
+
+## Running
+
+Contains 4 notebooks for different steps:
+
+- Deterministic optimization
+- Uncertainty characterization and modelling
+- Optimization under uncertainty
+- Out-of-sample validation
+
+Each of those can be run separately.
+
 ## Problem statement
 
 Plan an investment in 3 new cables and 3 generation units to supply 4 nodes / households.
@@ -27,7 +63,13 @@ The network has 4 nodes, $i=1,2,3,4$. These are components:
 ### Variables and Objective Function
 
 Let the decision variables be defined as:
-$$a=\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix} x_2 & x_3 & x_4 &  y_1 & y_2 & y_3 \end{bmatrix}^\top$$
+
+$$a=
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix} =
+\begin{bmatrix} x_2 & x_3 & x_4 & y_1 & y_2 & y_3 \end{bmatrix}^\top$$
 
 The objective is to find the optimal $a$ such that the total investment cost is minimized. The total cost is a linear function as follows::
 
@@ -72,8 +114,6 @@ where:
 - $c^\top=\begin{bmatrix}C_x \\ C_y\end{bmatrix}^\top$ is the vector of unit investment costs,
 - $A_{in}$ is the inequality constraint matrix,
 - $b_{in}(u)$ is the right-hand-side vector
-
----
 
 More explicitly
 

@@ -1,5 +1,5 @@
+"""Matplotlib utilities for single style and simpler plotting"""
 """Utility helpers shared across notebooks and scripts."""
-
 import matplotlib.pyplot as plt
 from pathlib import Path
 

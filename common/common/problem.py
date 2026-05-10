@@ -1,6 +1,4 @@
-# A simple module to import constant values into our notebooks
-# Utility only - Later could be deleted
-
+"""Problem definition"""
 import numpy as np
 
 C_x = np.array([5, 3, 4]) # generation costs at nodes 2, 3, 4
