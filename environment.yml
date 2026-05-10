@@ -1,4 +1,4 @@
-name: sncp
+name: snco
 channels:
   - conda-forge
 dependencies:
